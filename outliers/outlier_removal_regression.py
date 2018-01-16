@@ -5,6 +5,8 @@ import numpy
 import matplotlib.pyplot as plt
 import pickle
 
+from sklearn import linear_model
+
 from outlier_cleaner import outlierCleaner
 
 
@@ -25,7 +27,10 @@ ages_train, ages_test, net_worths_train, net_worths_test = train_test_split(ages
 
 ### fill in a regression here!  Name the regression object reg so that
 ### the plotting code below works, and you can see what your regression looks like
-
+reg = linear_model.LinearRegression()
+reg.fit(ages_train, net_worths_train)
+print reg.coef_
+print "Score: ", reg.score(ages_test, net_worths_test)
 
 
 
