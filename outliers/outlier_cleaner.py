@@ -10,8 +10,6 @@ def outlierCleaner(predictions, ages, net_worths):
         Return a list of tuples named cleaned_data where 
         each tuple is of the form (age, net_worth, error).
     """
-    
-    cleaned_data = []
 
     ### your code goes here
 
@@ -21,7 +19,5 @@ def outlierCleaner(predictions, ages, net_worths):
     cleaned_data = ordered_data[:81]
     print cleaned_data
 
-    #poi_name_total = [record for record in poi_name_record if "(y)" in record or "(n)" in record]
-    
     return cleaned_data
 
