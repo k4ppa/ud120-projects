@@ -78,3 +78,27 @@ try:
     Draw(pred, finance_features, poi, mark_poi=False, name="clusters.pdf", f1_name=feature_1, f2_name=feature_2)
 except NameError:
     print "no predictions object named pred found, no clusters to plot"
+
+
+data_dict.pop('TOTAL', 0) # Added after finding the outlier
+max = 0
+min = 100000000
+for k in data_dict:
+    if data_dict[k]['exercised_stock_options'] != 'NaN' and data_dict[k]['exercised_stock_options'] > max:
+        max = data_dict[k]['exercised_stock_options']
+    if data_dict[k]['exercised_stock_options'] != 'NaN' and -data_dict[k]['exercised_stock_options'] > -min:
+        min = data_dict[k]['exercised_stock_options']
+
+print max
+print min
+
+max = 0
+min = 100000000
+for k in data_dict:
+    if data_dict[k]['salary'] != 'NaN' and data_dict[k]['salary'] > max:
+        max = data_dict[k]['salary']
+    if data_dict[k]['salary'] != 'NaN' and -data_dict[k]['salary'] > -min:
+        min = data_dict[k]['salary']
+
+print max
+print min
